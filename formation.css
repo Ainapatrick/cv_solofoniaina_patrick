@@ -1,0 +1,39 @@
+#formations {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+#formations h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+
+.formations-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.formation-col {
+  flex: 1;
+  min-width: 250px;
+}
+
+.formation-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: #ecf0f1;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.formation-item i {
+  font-size: 2rem;
+  color: #3498db;
+}

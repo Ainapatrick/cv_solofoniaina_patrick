@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mon CV en ligne</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="profils.css" />
+        <link rel="stylesheet" href="formation.css" />
+        <link rel="stylesheet" href="experience.css" />
+        <link rel="stylesheet" href="competences.css" />
+        <link rel="stylesheet" href="contact.css" />
+        <link rel="stylesheet" href="statistiques.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    </head>
+    <body>
+        <div class="app">
+            <button id="toggle-navbar" class="toggle-btn">☰</button>
+            <div class="navbar" >
+                <div class="profile-img">
+                    <img src="patrick.jpg" alt="Mon image">
+                </div>
+                <div class="nom">
+                    <h3>R. S. Patrick</h3>
+                </div>
+                <div class="menu">
+                    <ul class="nav-item">
+                        <li class="nav-link"><a href="#profils">Profils</a></li>
+                        <li class="nav-link"><a href="#formations">Formations</a></li>
+                        <li class="nav-link"><a href="#experiences">Expériences</a></li>
+                        <li class="nav-link"><a href="#competences">Compétences</a></li>
+                        <li class="nav-link"><a href="#statistiques">statistiques</a></li>
+                        <li class="nav-link"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-link">
+                    <a href="https://github.com/votreprofil" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://facebook.com/votreprofil" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://linkedin.com/in/votreprofil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://youtube.com/votrechaine" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="content">
+                <div id="main-content">
+                    <!-- dynamically loaded pages -->
+                </div>
+                <footer>
+                    <p>© 2025 Solofoniaina Patrick - Tous droits réservés</p>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
