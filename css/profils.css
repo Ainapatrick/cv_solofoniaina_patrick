@@ -70,3 +70,9 @@
 .profil-body ul li i {
     color: #3498db;
 }
+.profil-body ul li{
+    box-shadow: 0 0 10px #ecf0f1;
+    border: 0px;
+    color: #2c3e50;
+    background:  #ecf0f1;
+}

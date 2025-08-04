@@ -1,5 +1,6 @@
-// animation GSAP
-gsap.from(".navbar", {
+// ANIMATION GSAP INITIAL
+/*
+gsap.from(".nav-bar", {
     x: -250,
     opacity: 0,
     duration: 1
@@ -9,19 +10,26 @@ gsap.from(".content", {
     opacity: 0,
     duration: 1
 });
-
-// fonction pour charger une page
+*/
+// LOAD PAGE DYNAMIC
 function loadPage(page) {
-    fetch(page + ".html")
+    fetch(`./pages/${page}.html`)
         .then(response => response.text())
         .then(data => {
             document.getElementById("main-content").innerHTML = data;
-            gsap.from("#main-content section", {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                stagger: 0.3
-            });
+
+            // Animate new section only after content is injected
+            const section = document.querySelector("#main-content section");
+            if (section) {
+                gsap.from(section, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    stagger: 0.3
+                });
+            }
+
+            // STATISTIQUES page => render Chart.js
             if (page === "statistiques") {
                 const canvas = document.getElementById("statsChart");
                 if (canvas) {
@@ -48,12 +56,32 @@ function loadPage(page) {
                     });
                 }
             }
+
+            animateExtraSections();
         })
-        .catch(error => console.log(error));
+        .catch(error => console.error("Erreur de chargement:", error));
 }
 
-// au démarrage
+// GESTION RESPONSIVE NAVBAR
+function handleResponsiveNavbar() {
+    const navbar = document.querySelector(".nav-bar");
+    const toggleBtn = document.getElementById("toggle-navbar");
+    const width = window.innerWidth;
+    if (width <= 768) {
+        navbar.classList.add("hidden-navbar");
+        //navbar.style.display = "none";
+        toggleBtn.style.display = "block";
+    } else {
+        navbar.classList.remove("hidden-navbar");
+        toggleBtn.style.display = "none";
+    }
+}
+
+
+// GESTION DU HASH AU DEMARRAGE
 window.addEventListener("DOMContentLoaded", () => {
+    handleResponsiveNavbar();
+
     const hash = window.location.hash.substring(1);
     if (hash) {
         loadPage(hash);
@@ -62,65 +90,30 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// quand on clique sur le menu
+// BOUTON MENU NAVBAR 
+document.getElementById("toggle-navbar").addEventListener("click", function () {
+    const navbar = document.querySelector(".nav-bar");
+    navbar.classList.toggle("hidden-navbar");
+});
+
+
+// REAJUSTEMENT AU REDIMENSIONNEMENT
+window.addEventListener("resize", handleResponsiveNavbar);
+
+// LIEN CLIQUÉE AO AMIN'NY MENU
 document.querySelectorAll(".nav-link a").forEach(link => {
     link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = this.getAttribute("href").substring(1);
+        window.location.hash = target;
+        loadPage(target);
     });
 });
 
-// quand le hash change
+// LORSQUE MIOVA NY HASH
 window.addEventListener("hashchange", () => {
     const hash = window.location.hash.substring(1);
     if (hash) {
         loadPage(hash);
     }
 });
-
-// bouton toggle
-document.addEventListener("click", function (e) {
-    if (e.target && e.target.id === "toggle-navbar") {
-        document.querySelector(".navbar").classList.toggle("hidden-navbar");
-    }
-});
-
-//section formation
-gsap.from(".formation-col", {
-    x: -200,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.3
-});
-
-gsap.from(".formation-col:nth-child(2)", {
-    x: 200,
-    opacity: 0,
-    duration: 1,
-    delay: 0.5
-});
-
-
-///section profil
-gsap.from(".profil-card", {
-    opacity: 0,
-    y: 50,
-    duration: 1
-});
-
-//experience 
-gsap.from(".experience-card", {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    stagger: 0.3
-});
-
-//competence
-gsap.to(".progress", {
-    width: (i, el) => el.style.width,
-    duration: 1.5,
-    delay: 0.5,
-    ease: "power3.out",
-    stagger: 0.3
-});
-
-
