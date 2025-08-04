@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mon CV en ligne</title>
-        <link rel="stylesheet" href="./css/style.css" />
-        <link rel="stylesheet" href="./css/profils.css" />
-        <link rel="stylesheet" href="./css/formation.css" />
-        <link rel="stylesheet" href="./css/experience.css" />
-        <link rel="stylesheet" href="./css/competences.css" />
-        <link rel="stylesheet" href="./css/contact.css" />
-        <link rel="stylesheet" href="./css/statistiques.css" />
-        <link rel="stylesheet" href="./css/all.min.css" />
-    </head>
-    <body>
-        <div class="app">
-            <button id="toggle-navbar" class="toggle-btn">
-                <i class="fa fa-list-squares"></i> Menu
-            </button>
-            <div class="nav-bar">
-                <div class="profile-img">
-                    <img src="./patrick.jpg" alt="Mon image">
-                </div>
-                <div class="nom">
-                    <h3>R. S. Patrick</h3>
-                </div>
-                <div class="menu">
-                    <ul class="nav-item">
-                        <li class="nav-link"><a href="#profils">Profils</a></li>
-                        <li class="nav-link"><a
-                                href="#formations">Formations</a></li>
-                        <li class="nav-link"><a
-                                href="#experiences">Expériences</a></li>
-                        <li class="nav-link"><a
-                                href="#competences">Compétences</a></li>
-                        <li class="nav-link"><a
-                                href="#statistiques">statistiques</a></li>
-                        <li class="nav-link"><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="social-link">
-                    <a href="https://github.com/votreprofil" target="_blank"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://facebook.com/votreprofil"
-                        target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://linkedin.com/in/votreprofil"
-                        target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://youtube.com/votrechaine" target="_blank"><i
-                            class="fab fa-youtube"></i></a>
-                </div>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon CV en ligne</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/profils.css" />
+    <link rel="stylesheet" href="./css/formation.css" />
+    <link rel="stylesheet" href="./css/experience.css" />
+    <link rel="stylesheet" href="./css/competences.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
+    <link rel="stylesheet" href="./css/statistiques.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+</head>
+
+<body>
+    <div class="app">
+        <button id="toggle-navbar" class="toggle-btn">
+            <i class="fa fa-list-squares"></i> Menu
+        </button>
+        <div class="nav-bar">
+            <div class="profile-img">
+                <img src="./patrick.jpg" alt="Mon image">
             </div>
-            <div class="content">
-                <div id="main-content">
-                    <!-- contenu dynamique-->
-                </div>
-                <footer>
-                    <p>© 2025 Solofoniaina Patrick - Tous droits réservés</p>
-                </footer>
+            <div class="nom">
+                <h3>R. S. Patrick</h3>
+            </div>
+            <div class="menu">
+                <ul class="nav-item">
+                    <li class="nav-link"><a href="#profils">Profils</a></li>
+                    <li class="nav-link"><a href="#formations">Formations</a></li>
+                    <li class="nav-link"><a href="#experiences">Expériences</a></li>
+                    <li class="nav-link"><a href="#competences">Compétences</a></li>
+                    <li class="nav-link"><a href="#statistiques">statistiques</a></li>
+                    <li class="nav-link"><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-link">
+                <a href="https://github.com/votreprofil" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://facebook.com/votreprofil" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://linkedin.com/in/votreprofil" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://youtube.com/votrechaine" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
+        <div class="content">
+            <div id="main-content">
+                <!-- contenu dynamique-->
+            </div>
+            <footer>
+                <p>© 2025 Solofoniaina Patrick - Tous droits réservés</p>
+            </footer>
+        </div>
+    </div>
 
-        <script src="./js/gsap.min.js"></script>
-        <script src="./js/chart.js"></script>
-        <script src="./js/script.js"></script>
-    </body>
+    <script src="./js/gsap.min.js"></script>
+    <script src="./js/chart.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        (function () {
+            emailjs.init("yJpyPS9GSI60EPPF1");
+        })();
+    </script>
+</body>
+
 </html>

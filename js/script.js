@@ -18,7 +18,6 @@ function loadPage(page) {
         .then(data => {
             document.getElementById("main-content").innerHTML = data;
 
-            // Animate new section only after content is injected
             const section = document.querySelector("#main-content section");
             if (section) {
                 gsap.from(section, {
@@ -29,7 +28,6 @@ function loadPage(page) {
                 });
             }
 
-            // STATISTIQUES page => render Chart.js
             if (page === "statistiques") {
                 const canvas = document.getElementById("statsChart");
                 if (canvas) {
@@ -57,7 +55,31 @@ function loadPage(page) {
                 }
             }
 
-            animateExtraSections();
+            if (typeof animateExtraSections === "function") {
+                animateExtraSections();
+            }
+
+
+            // 🔽 Fanampiana EmailJS form submit
+            if (page === "contact") {
+                setTimeout(() => {
+                    const form = document.getElementById("contact-form");
+                    if (form) {
+                        form.addEventListener("submit", function (e) {
+                            e.preventDefault();
+
+                            emailjs.sendForm("service_dyyb5ja", "template_jmgf59r", this)
+                                .then(function () {
+                                    alert("Message envoyé avec succès !");
+                                    form.reset();
+                                }, function (error) {
+                                    alert("Erreur lors de l’envoi : " + JSON.stringify(error));
+                                });
+                        });
+                    }
+                }, 100);
+            }
+
         })
         .catch(error => console.error("Erreur de chargement:", error));
 }
